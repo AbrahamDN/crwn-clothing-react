@@ -5,6 +5,7 @@ import { HomePageContainer } from "./homepage.styles";
 const HomePage = () => {
   return (
     <HomePageContainer>
+      {/* <SearchExampleCategory /> */}
       <Directory />
     </HomePageContainer>
   );

@@ -11,8 +11,7 @@ import {
   HeaderContainer,
   LogoContainer,
   OptionsContainer,
-  OptionContainerDiv,
-  OptionContainerLink,
+  OptionLink,
 } from "./header.styles";
 const Header = ({ currentUser, hidden }) => {
   return (
@@ -21,23 +20,16 @@ const Header = ({ currentUser, hidden }) => {
         <Logo className="logo" />
       </LogoContainer>
       <OptionsContainer>
-        <OptionContainerLink to="/shop">SHOP</OptionContainerLink>
-        <OptionContainerLink to="/shop">CONTACT</OptionContainerLink>
+        <OptionLink to="/shop">SHOP</OptionLink>
+        <OptionLink to="/shop">CONTACT</OptionLink>
         {currentUser ? (
-          <div>
-            <OptionContainerDiv>
-              {currentUser.displayName.toUpperCase()}
-            </OptionContainerDiv>
-            <OptionContainerDiv onClick={() => auth.signOut()}>
-              SIGN OUT
-            </OptionContainerDiv>
-          </div>
+          <OptionLink as="div" onClick={() => auth.signOut()}>
+            SIGN OUT
+          </OptionLink>
         ) : (
-          <OptionContainerLink to="/signin">LOGIN</OptionContainerLink>
+          <OptionLink to="/signin">LOGIN</OptionLink>
         )}
-        <OptionContainerDiv>
-          <CartIcon />
-        </OptionContainerDiv>
+        <CartIcon />
       </OptionsContainer>
       {hidden ? null : <CartDropdown />}
     </HeaderContainer>
